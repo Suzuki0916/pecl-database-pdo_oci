@@ -1,0 +1,10 @@
+Makefile.fragments
+Makefile.objects
+autom4te.cache/
+build/
+config.h.in
+config.log
+config.nice
+configure
+configure.ac
+run-tests.php
