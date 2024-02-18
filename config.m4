@@ -174,14 +174,6 @@ if test "$PHP_PDO_OCI" != "no"; then
     -L$PDO_OCI_LIB_DIR $PDO_OCI_SHARED_LIBADD
   ])
 
-  dnl Scrollable cursors?
-  PHP_CHECK_LIBRARY(clntsh, OCIStmtFetch2,
-  [
-     AC_DEFINE(HAVE_OCISTMTFETCH2,1,[ ])
-  ], [], [
-    -L$PDO_OCI_LIB_DIR $PDO_OCI_SHARED_LIBADD
-  ])
-
   dnl Can handle bytes vs. characters?
   PHP_CHECK_LIBRARY(clntsh, OCILobRead2,
   [
