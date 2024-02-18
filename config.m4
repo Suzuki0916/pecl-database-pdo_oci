@@ -20,12 +20,8 @@ AC_DEFUN([AC_PDO_OCI_VERSION],[
     dnl Oracle 10g, 11g 12c etc. The x.2 version libraries are named x.1 for
     dnl drop in compatibility
     PDO_OCI_VERSION=`echo $PDO_OCI_LCS | $PHP_PDO_OCI_SED -e 's/.*\.\(.*\)\.1$/\1.1/'`
-  elif test -f $PDO_OCI_LCS_BASE.9.0; then
-    dnl There is no case for Oracle 9.2. Oracle 9.2 libraries have a 9.0 suffix
-    dnl for drop-in compatibility with Oracle 9.0
-    PDO_OCI_VERSION=9.0
   else
-    AC_MSG_ERROR(Oracle libclntsh.$SHLIB_SUFFIX_NAME client library not found or its version is lower than 9)
+    AC_MSG_ERROR(Oracle libclntsh.$SHLIB_SUFFIX_NAME client library not found or its version is lower than 10g)
   fi
   AC_MSG_RESULT($PDO_OCI_VERSION)
 ])
@@ -150,12 +146,6 @@ if test "$PHP_PDO_OCI" != "no"; then
     fi
     AC_PDO_OCI_VERSION($PDO_OCI_LIB_DIR)
   fi
-
-  case $PDO_OCI_VERSION in
-    7.3|8.0|8.1)
-      AC_MSG_ERROR([Oracle client libraries < 9 are not supported])
-      ;;
-  esac
 
   PHP_ADD_LIBRARY(clntsh, 1, PDO_OCI_SHARED_LIBADD)
   PHP_ADD_LIBPATH($PDO_OCI_LIB_DIR, PDO_OCI_SHARED_LIBADD)
