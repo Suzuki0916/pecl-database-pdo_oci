@@ -635,30 +635,18 @@ static ssize_t oci_blob_write(php_stream *stream, const char *buf, size_t count)
 static ssize_t oci_blob_read(php_stream *stream, char *buf, size_t count)
 {
 	struct oci_lob_self *self = (struct oci_lob_self*)stream->abstract;
-#if HAVE_OCILOBREAD2
 	oraub8 byte_amt = (oraub8) count;
 	oraub8 char_amt = 0;
 
 	sword r = OCILobRead2(self->E->svc, self->E->err, self->lob,
 		&byte_amt, &char_amt, (oraub8) self->offset, buf, (oraub8) count,
         OCI_ONE_PIECE, NULL, NULL, 0, self->csfrm);
-#else
-	ub4 byte_amt = (ub4) count;
-
-	sword r = OCILobRead(self->E->svc, self->E->err, self->lob,
-		&byte_amt, self->offset, buf, (ub4) count,
-		NULL, NULL, 0, SQLCS_IMPLICIT);
-#endif
 
 	if (r != OCI_SUCCESS && r != OCI_NEED_DATA) {
 		return (ssize_t)-1;
 	}
 
-#if HAVE_OCILOBREAD2
 	self->offset += self->csfrm == 0 ? byte_amt : char_amt;
-#else
-	self->offset += byte_amt;
-#endif
 	if (byte_amt < count) {
 		stream->eof = 1;
 	}
