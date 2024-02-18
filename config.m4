@@ -160,13 +160,6 @@ if test "$PHP_PDO_OCI" != "no"; then
   PHP_ADD_LIBRARY(clntsh, 1, PDO_OCI_SHARED_LIBADD)
   PHP_ADD_LIBPATH($PDO_OCI_LIB_DIR, PDO_OCI_SHARED_LIBADD)
 
-  PHP_CHECK_LIBRARY(clntsh, OCIEnvNlsCreate,
-  [
-    AC_DEFINE(HAVE_OCIENVNLSCREATE,1,[ ])
-  ], [], [
-    -L$PDO_OCI_LIB_DIR $PDO_OCI_SHARED_LIBADD
-  ])
-
   PHP_CHECK_PDO_INCLUDES
 
   PHP_NEW_EXTENSION(pdo_oci, pdo_oci.c oci_driver.c oci_statement.c, $ext_shared,,-I$pdo_cv_inc_path)
