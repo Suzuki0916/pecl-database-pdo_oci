@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.11" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
+ <name>pdo_oci</name>
+ <channel>pecl.php.net</channel>
+ <summary>Extension for Oracle Database</summary>
+
+ <description>
+The PDO_OCI extension lets you access Oracle Database.
+
+Use 'pecl install pdo_oci' to install for PHP 8.2.
+
+The current PDO_OCI extension can be linked with Oracle Client libraries from Oracle Database 11.2 or later.  The Oracle Client libraries are in the free Oracle Instant Client from https://www.oracle.com/database/technologies/instant-client.html.  They are also included in your database installation.
+
+Oracle's standard cross-version connectivity applies.  For example, PHP PDO_OCI linked with Oracle Client 19c can connect to Oracle Database 11.2 onward.  See Oracle's note "Oracle Client / Server Interoperability Support" (ID 207303.1) for details.
+ </description>
+ <lead>
+  <name>Christopher Jones</name>
+  <user>sixd</user>
+  <email>sixd@php.net</email>
+  <active>yes</active>
+ </lead>
+
+ <date>2024-02-18</date>
+ <time>12:00:00</time>
+
+  <version>
+   <release>1.1.0</release>
+   <api>1.1.0</api>
+  </version>
+  <stability>
+   <release>stable</release>
+   <api>stable</api>
+  </stability>
+  <license uri="http://www.php.net/license">PHP</license>
+  <notes>
+    This version is for PHP 8.2 only.
+
+    Requires Oracle Client libraries from 11.2 or later.
+  </notes>
+ <contents>
+  <dir name="/">
+   <file name="config.m4" role="src" />
+   <file name="config.w32" role="src" />
+   <file name="CREDITS" role="doc" />
+   <file name="LICENSE" role="doc" />
+   <file name="oci_driver.c" role="src" />
+   <file name="oci_statement.c" role="src" />
+   <file name="pdo_oci.c" role="src" />
+   <file name="php_pdo_oci.h" role="src" />
+   <file name="php_pdo_oci_int.h" role="src" />
+   <file name="README.md" role="doc" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>8.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>pdo_oci</providesextension>
+ <extsrcrelease>
+  <configureoption default="autodetect" name="with-pdo-oci" prompt="Please provide the path to the ORACLE_HOME directory. Use &apos;instantclient,/path/to/instant/client/lib&apos; if you&apos;re compiling with Oracle Instant Client" />
+ </extsrcrelease>
+</package>
