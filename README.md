@@ -4,7 +4,7 @@ Use the PDO_OCI extension to access Oracle Database.
 
 Documentation is at https://www.php.net/pdo_oci
 
-Use `pecl install pdo_oci` to install for PHP 8.2.
+Use `pecl install pdo_oci` to install for PHP 8.3.
 
 The PDO_OCI extension can be linked with Oracle client libraries from Oracle
 Database 11.2 or later.  These libraries are found in your database

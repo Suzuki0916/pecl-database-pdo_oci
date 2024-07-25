@@ -36,7 +36,7 @@ Oracle's standard cross-version connectivity applies.  For example, PHP PDO_OCI 
   </stability>
   <license uri="http://www.php.net/license">PHP</license>
   <notes>
-    This version is for PHP 8.2 only.
+    This version is for PHP 8.3 only.
 
     Requires Oracle Client libraries from 11.2 or later.
   </notes>
@@ -57,10 +57,10 @@ Oracle's standard cross-version connectivity applies.  For example, PHP PDO_OCI 
  <dependencies>
   <required>
    <php>
-    <min>8.1.0</min>
+    <min>8.3.0</min>
    </php>
    <pearinstaller>
-    <min>1.4.0b1</min>
+    <min>1.10</min>
    </pearinstaller>
   </required>
  </dependencies>
