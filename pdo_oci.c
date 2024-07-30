@@ -143,6 +143,7 @@ PHP_MINFO_FUNCTION(pdo_oci)
 {
 	php_info_print_table_start();
 	php_info_print_table_row(2, "PDO Driver for OCI 8 and later", "enabled");
+	php_info_print_table_row(2, "PDO_OCI extension version", PHP_PDO_OCI_VERSION);
 	php_info_print_table_end();
 }
 /* }}} */
